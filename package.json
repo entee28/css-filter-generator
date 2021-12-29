@@ -1,0 +1,18 @@
+{
+  "name": "css-filter-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "sass --watch src/style.scss:src/style.css"
+  },
+  "author": "Thanh Nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "vanilla-picker": "^2.12.1"
+  },
+  "devDependencies": {
+    "jquery": "^3.6.0",
+    "sass": "^1.45.1"
+  }
+}
