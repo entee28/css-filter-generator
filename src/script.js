@@ -1,7 +1,5 @@
 'use strict';
 
-import Picker from "vanilla-picker";
-
 class Color {
   constructor(r, g, b) {
     this.set(r, g, b);
@@ -324,4 +322,22 @@ $(document).ready(() => {
     $('.filterDetail').text(result.filter);
     $('.lossDetail').html(`Loss: ${result.loss.toFixed(1)}. <b>${lossMsg}</b>`);
   });
+});
+
+const picker = document.querySelector('.pixel');
+const hexInput = document.querySelector('#hex-input');
+
+const popup = new Picker({
+    parent: picker,
+    color: '#00a4d6',
+    editor: false,
+    popup: 'bottom',
+    alpha: false,
+    onChange: function(color) {
+        picker.style.background = color.rgbaString;
+        hexInput.value = color.hex.slice(0,7).toUpperCase();
+    },
+    onDone: function(color) {
+        console.log(color.hex);
+    }
 });

@@ -1,10 +1,10 @@
 @font-face {
   font-family: Eina;
-  src: url(./fonts/eina/Eina01-Regular.ttf);
+  src: url(../fonts/Eina01-Regular.ttf);
 }
 @font-face {
   font-family: Eina;
-  src: url(./fonts/eina/Eina01-Bold.ttf);
+  src: url(../fonts/Eina01-Bold.ttf);
   font-weight: bold;
 }
 * {
@@ -24,6 +24,21 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 5px 0;
+  line-height: 1.7;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(73deg) brightness(103%) contrast(103%);
+}
+
 .navbar, .color-pick {
   width: 100%;
   height: auto;
@@ -31,24 +46,71 @@ a {
   padding: 20px;
 }
 
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
 .color-pick {
   height: 275px;
+  color: #fff;
 }
 
 .color-pick-container {
-  max-width: 1440px;
+  max-width: 1150px;
   height: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
 }
+.color-pick-container p {
+  margin-bottom: 20px;
+}
+.color-pick-container .input-container {
+  position: relative;
+}
+.color-pick-container #hex-input {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  padding: 5px;
+  padding-left: 30px;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.color-pick-container #hex-input:focus {
+  outline: none;
+}
+.color-pick-container .pixel {
+  position: absolute;
+  display: inline;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.color-pick-container .execute {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: relative;
+  right: 20px;
+  top: 2px;
+}
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1440px;
-  margin: 0 auto;
+.text-xl {
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+.text-sm {
+  font-size: 1.1rem;
 }
 
 .pixel {
@@ -56,6 +118,7 @@ a {
   background-color: #000;
   width: 50px;
   height: 50px;
+  border: 1px solid white;
 }
 
 .filterDetail {
