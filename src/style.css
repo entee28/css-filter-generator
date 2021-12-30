@@ -55,7 +55,7 @@ p {
 }
 
 .color-pick {
-  height: 275px;
+  height: 350px;
   color: #fff;
 }
 
@@ -63,8 +63,11 @@ p {
   max-width: 1150px;
   height: 100%;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   align-items: center;
+  justify-content: space-between;
 }
 .color-pick-container p {
   margin-bottom: 20px;
@@ -84,7 +87,7 @@ p {
 .color-pick-container #hex-input:focus {
   outline: none;
 }
-.color-pick-container .pixel {
+.color-pick-container .realPixel {
   position: absolute;
   display: inline;
   left: 0;
@@ -102,6 +105,10 @@ p {
   position: relative;
   right: 20px;
   top: 2px;
+}
+.color-pick-container #detail {
+  letter-spacing: 1.3px;
+  font-size: 1rem;
 }
 
 .text-xl {

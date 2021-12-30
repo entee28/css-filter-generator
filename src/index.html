@@ -25,37 +25,25 @@
             <div>
                 <h2 class="text-xl">Pick Your Color</h2>
                 <p class="text-sm">Choose a target color of choice by hex code</p>
+                <p class="text-sm" id="detail">Choose a target color of choice by hex code</p>
                 <div class="input-container">
                     <div class="pixel realPixel"></div>
-                    <input type="text" class="target" name="hex-input" id="hex-input">
+                    <input type="text" class="target" name="hex-input" id="hex-input" autocomplete="off" maxlength="7" minlength="7">
                     <button class="execute">
                         <img src="../res/arrow-right-solid.svg" class="icon">
                     </button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <table>
-        <tr valign="top">
-            <td width="50%">
-                <!-- <fieldset>
-                    <p>
-                        <label>Target color</label> <input class="target" type="text" placeholder="target hex"
-                            value="#00a4d6" />
-                    </p>
-                    <button class="execute">Compute Filters</button>
-                </fieldset> -->
-                <p>Real pixel, color applied through CSS <code>background-color</code>:</p>
-
+            <div>
                 <p>Filtered pixel, color applied through CSS <code>filter</code>:</p>
                 <div class="pixel filterPixel"></div>
 
                 <p class="filterDetail"></p>
                 <p class="lossDetail"></p>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </section>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/vanilla-picker/dist/vanilla-picker.csp.min.js"></script>
