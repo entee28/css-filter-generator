@@ -1,5 +1,11 @@
 'use strict';
 
+var jquery = require("jquery");
+window.$ = window.jQuery = jquery;
+
+import Picker from 'vanilla-picker';
+import 'vanilla-picker/dist/vanilla-picker.csp.css';
+
 class Color {
   constructor(r, g, b) {
     this.set(r, g, b);

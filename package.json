@@ -2,9 +2,10 @@
   "name": "css-filter-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "main": "src/script.js",
   "scripts": {
-    "start": "sass --watch src/style.scss:src/style.css"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   },
   "author": "Thanh Nguyen",
   "license": "MIT",
@@ -13,7 +14,9 @@
     "vanilla-picker": "^2.12.1"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.1",
     "jquery": "^3.6.0",
+    "parcel": "^2.0.1",
     "sass": "^1.45.1"
   }
 }
