@@ -353,6 +353,10 @@ $(document).ready(() => {
   $('button.execute').click(() => {
     handleGenerate();
   });
+  $('form').submit((e) => {
+    e.preventDefault();
+    handleGenerate();
+  })
 });
 
 const picker = document.querySelector('.pixel');

@@ -22,18 +22,18 @@
 
     <section class="color-pick">
         <div class="color-pick-container grid-col-2">
-            <div class="choose-color">
+            <div class="choose-color animate__animated animate__fadeInUp">
                 <h2 class="text-xl">Pick Your Color</h2>
                 <p class="text-sm">Choose a target color of choice by hex code</p>
                 <p class="text-sm" id="detail">Choose a target color of choice by hex code</p>
-                <div class="input-container">
+                <form class="input-container">
                     <div class="pixel realPixel"></div>
                     <input type="text" class="target" name="hex-input" id="hex-input" autocomplete="off" maxlength="7"
                         minlength="7">
                     <button class="execute">
                         <img src="../res/arrow-right-solid.svg" class="icon">
                     </button>
-                </div>
+                </form>
             </div>
 
             <div>
@@ -49,7 +49,7 @@
     <section class="about">
         <div class="about-container">
             <div class="part">
-                <h1 class="text-md">Why CSS Filter Generator?</h1>
+                <h2 class="text-md">Why CSS Filter Generator?</h2>
 
                 <p>Let's say you have just got for yourself an amazing SVG icon that you thought is ready for use in
                     your project, then you realise that
@@ -63,7 +63,7 @@
             </div>
 
             <div class="part">
-                <h1 class="text-md">How To Get This Done?</h1>
+                <h2 class="text-md">How To Get This Done?</h2>
                 <p>Starting from picking a target color of choice, either by entering hex value into the input field, or using the color vanilla-picker
                     (by clicking the color in the input field), dragging your cursor inside the picker area to highlight a color at the bottom of the picker.
                 </p>
@@ -72,10 +72,24 @@
                     value is displayed and you can re-run the Generator until you get your desired result.
                 </p>
             </div>
-
-
+            
+            <div class="part">
+                <h2 class="text-md">Why did you make this?</h2>
+                <p>There once a time I caught off myself searching for a way to change the color of an SVG icon for my project. And then I found this 
+                    <a href="https://codepen.io/sosuke/pen/Pjoqqp">CodePen project</a> made by <strong>Barrett Sonntag</strong> really helpful.
+                     You can say this is a recreation of that project with some improvements, with an aim to make such tools like this one to be more
+                     approachable to people, thus making Internet a better place.                     
+                </p>
+            </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <footer class="footer-container">
+            <h2>CSS Filter Generator</h2>
+            <p>© 2021, All Rights Reserved</p>
+        </footer>
+    </footer>
 
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/vanilla-picker/dist/vanilla-picker.csp.min.js"></script>

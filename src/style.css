@@ -1,3 +1,4 @@
+@import url(../node_modules/animate.css/animate.min.css);
 @font-face {
   font-family: Eina;
   src: url(../fonts/Eina01-Regular.ttf);
@@ -25,8 +26,7 @@ body {
 }
 
 a {
-  color: #fff;
-  text-decoration: none;
+  color: #000;
 }
 
 ul {
@@ -55,7 +55,8 @@ code {
 
 .navbar,
 .color-pick,
-.about {
+.about,
+.footer {
   width: 100%;
   height: auto;
   background-color: #185f94;
@@ -69,6 +70,10 @@ code {
   align-items: center;
   max-width: 1150px;
   margin: 0 auto;
+}
+.navbar-container a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .color-pick {
@@ -135,6 +140,7 @@ code {
 .about {
   background-color: #fff;
   padding: 1.25rem;
+  z-index: -1;
 }
 
 .about-container {
@@ -151,6 +157,17 @@ code {
 }
 .part p {
   font-size: 1.2rem;
+}
+
+.footer {
+  background-color: #f4f8fb;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
 .text-xl {

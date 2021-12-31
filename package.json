@@ -9,6 +9,7 @@
   "author": "Thanh Nguyen",
   "license": "MIT",
   "dependencies": {
+    "animate.css": "^4.1.1",
     "vanilla-picker": "^2.12.1"
   },
   "devDependencies": {
