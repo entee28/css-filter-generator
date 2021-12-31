@@ -2,7 +2,6 @@
   "name": "css-filter-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "src/script.js",
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html"
@@ -11,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "animate.css": "^4.1.1",
-    "vanilla-picker": "^2.12.1"
+    "vanilla-picker": "^2.12.1",
+    "jquery": "^3.6.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.1",
