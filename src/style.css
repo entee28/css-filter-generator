@@ -7,13 +7,18 @@
   src: url(../fonts/Eina01-Bold.ttf);
   font-weight: bold;
 }
+@font-face {
+  font-family: Cascadia Code;
+  src: url(../fonts/CascadiaCode.ttf);
+}
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-html, body {
+html,
+body {
   font-family: Eina, sans-serif;
   line-height: 1.4;
   color: #000;
@@ -33,17 +38,29 @@ p {
   line-height: 1.7;
 }
 
+code {
+  font-family: "Cascadia Code", "Consolas", "Menlo", "Ubuntu Mono", monospace;
+}
+
 .icon {
   width: 20px;
   height: 20px;
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(73deg) brightness(103%) contrast(103%);
+  transition: all 0.8s ease-in-out;
 }
 
-.navbar, .color-pick {
+.hidden {
+  opacity: 0;
+}
+
+.navbar,
+.color-pick,
+.about {
   width: 100%;
   height: auto;
-  background-color: #185F94;
+  background-color: #185f94;
   padding: 20px;
+  transition: all 0.8s ease-in-out;
 }
 
 .navbar-container {
@@ -55,19 +72,22 @@ p {
 }
 
 .color-pick {
-  height: 350px;
+  height: 420px;
   color: #fff;
+}
+
+.grid-col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .color-pick-container {
   max-width: 1150px;
   height: 100%;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  justify-content: space-between;
 }
 .color-pick-container p {
   margin-bottom: 20px;
@@ -83,6 +103,7 @@ p {
   padding-left: 30px;
   color: #fff;
   font-size: 0.8rem;
+  transition: all 0.8s ease-in-out;
 }
 .color-pick-container #hex-input:focus {
   outline: none;
@@ -111,8 +132,34 @@ p {
   font-size: 1rem;
 }
 
+.about {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.about-container {
+  max-width: 1150px;
+  margin: 80px auto;
+}
+
+.part {
+  margin-bottom: 60px;
+  width: 65%;
+}
+.part h1 {
+  margin-bottom: 25px;
+}
+.part p {
+  font-size: 1.2rem;
+}
+
 .text-xl {
   font-size: 3.5rem;
+  font-weight: bold;
+}
+
+.text-md {
+  font-size: 2rem;
   font-weight: bold;
 }
 
@@ -129,7 +176,18 @@ p {
 }
 
 .filterDetail {
-  font-family: "Consolas", "Menlo", "Ubuntu Mono", monospace;
+  font-family: "Cascadia Code", "Consolas", "Menlo", "Ubuntu Mono", monospace;
+}
+
+@media (max-width: 700px) {
+  .grid-col-2 {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .color-pick {
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

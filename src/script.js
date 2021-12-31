@@ -4,7 +4,7 @@ class Color {
   constructor(r, g, b) {
     this.set(r, g, b);
   }
-  
+
   toString() {
     return `rgb(${Math.round(this.r)}, ${Math.round(this.g)}, ${Math.round(this.b)})`;
   }
@@ -296,30 +296,57 @@ function hexToRgb(hex) {
 
 const handleGenerate = () => {
   const rgb = hexToRgb($('input.target').val());
-      if (rgb.length !== 3) {
-        alert('Invalid format!');
-        return;
-      }
-  
-      const color = new Color(rgb[0], rgb[1], rgb[2]);
-      const solver = new Solver(color);
-      const result = solver.solve();
-  
-      let lossMsg;
-      if (result.loss < 1) {
-        lossMsg = 'This is a perfect result.';
-      } else if (result.loss < 5) {
-        lossMsg = 'The is close enough.';
-      } else if (result.loss < 15) {
-        lossMsg = 'The color is somewhat off. Consider running it again.';
-      } else {
-        lossMsg = 'The color is extremely off. Run it again!';
-      }
-  
-      $('.realPixel').css('background-color', color.toString());
-      $('.filterPixel').attr('style', result.filter);
-      $('.filterDetail').text(result.filter);
-      $('.lossDetail').html(`Loss: ${result.loss.toFixed(1)}. <b>${lossMsg}</b>`);
+  if (rgb.length !== 3) {
+    alert('Invalid format!');
+    return;
+  }
+
+  const color = new Color(rgb[0], rgb[1], rgb[2]);
+  const solver = new Solver(color);
+  const result = solver.solve();
+
+  // let msgColor;
+
+  let lossMsg;
+  if (result.loss < 1) {
+    lossMsg = 'This is a perfect result.';
+    // msgColor = 'Chartreuse';
+  } else if (result.loss < 5) {
+    lossMsg = 'This is close enough.';
+    // msgColor = 'yellow';
+  } else if (result.loss < 15) {
+    lossMsg = 'The color is somewhat off. Consider running it again.';
+    // msgColor = 'orange';
+  } else {
+    lossMsg = 'The color is extremely off. Run it again!';
+    // msgColor = 'red';
+  }
+
+  const intro = document.querySelector('.para-intro');
+  intro.innerHTML = `Background color of this section is apllied through CSS <code>background-color</code> for comparison.<br>
+  Below is a filtered pixel, color applied through CSS <code>filter</code>:`
+  $('.navbar').css('background-color', color.toString());
+  $('.color-pick').css('background-color', color.toString());
+  $('.filterPixel').removeClass('hidden');
+  $('.filterPixel').attr('style', result.filter);
+  $('.filterDetail').text(result.filter);
+  $('.lossDetail').html(`Loss: <b>${result.loss.toFixed(1)}</b>. <b>${lossMsg}</b>`);
+
+  if ((rgb[0] * 0.299 + rgb[1] * 0.587 + rgb[2] * 0.114) > 186) {
+    $('.color-pick').css('color', '#000000');
+    $('#navbar-brand').css('color', '#000000');
+    $('#hex-input').css('color', '#000000');
+    $('#hex-input').css('border-bottom', '1px solid #000000');
+    $('.realPixel').css('border', '1px solid #000000');
+    $('.icon').css('filter', 'invert(0%) sepia(2%) saturate(1138%) hue-rotate(136deg) brightness(87%) contrast(100%)');
+  } else {
+    $('.color-pick').css('color', '#ffffff');
+    $('#navbar-brand').css('color', '#ffffff');
+    $('#hex-input').css('color', '#fff');
+    $('#hex-input').css('border-bottom', '1px solid #fff');
+    $('.realPixel').css('border', '1px solid #ffffff');
+    $('.icon').css('filter', 'invert(100%) sepia(100%) saturate(0%) hue-rotate(73deg) brightness(103%) contrast(103%)');
+  }
 }
 
 $(document).ready(() => {
@@ -333,16 +360,16 @@ const hexInput = document.querySelector('#hex-input');
 const detail = document.querySelector('#detail');
 
 const popup = new Picker({
-    parent: picker,
-    color: '#00a4d6',
-    editor: false,
-    popup: 'bottom',
-    alpha: false,
-    onChange: function(color) {
-        picker.style.background = color.rgbaString;
-        hexInput.value = color.hex.slice(0,7).toUpperCase();
-        detail.innerHTML = `${color.rgbString.toUpperCase()} / ${color.hslString.toUpperCase()}`
-        detail.style.fontWeight = 'bold';
-    },
-    onDone: handleGenerate,
+  parent: picker,
+  color: '#00a4d6',
+  editor: false,
+  popup: 'bottom',
+  alpha: false,
+  onChange: function (color) {
+    picker.style.background = color.rgbaString;
+    hexInput.value = color.hex.slice(0, 7).toUpperCase();
+    detail.innerHTML = `${color.rgbString.toUpperCase()} / ${color.hslString.toUpperCase()}`
+    detail.style.fontWeight = 'bold';
+  },
+  onDone: handleGenerate,
 });
